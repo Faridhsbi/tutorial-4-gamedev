@@ -57,27 +57,26 @@ sources/0 = SubResource("TileSetAtlasSource_odhdn")
 size = Vector2(89, 1154.5)
 
 [node name="Level1" type="Node2D" unique_id=1631608712]
-position = Vector2(17, 198)
 
 [node name="ColoredLand" type="Sprite2D" parent="." unique_id=2101660135]
 modulate = Color(0.8151441, 0.8151441, 0.8151441, 1)
-position = Vector2(512.00006, -48.999985)
+position = Vector2(519.00006, 210)
 scale = Vector2(1.5185547, 1.5185547)
 texture = ExtResource("1_svatc")
 
 [node name="Player" parent="." unique_id=96839003 instance=ExtResource("1")]
-position = Vector2(26, 160)
+position = Vector2(33, 419)
 collision_layer = 3
 collision_mask = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=989327892]
-position = Vector2(-10, -59)
+position = Vector2(-3, 200)
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAACAAIAAAAFAAEAAAABAAMAAAAFAAEAAAACAAMAAAAIAAAAAAABAAQAAAAIAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAFAAQAAAABAAAAAAAHAAQAAAAEAAAAAAAGAAQAAAABAAAAAAAOAAQAAAABAAAAAAAQAAQAAAABAAAAAAARAAQAAAABAAAAAAAPAAQAAAABAAAAAAAMAAQAAAAFAAAAAAANAAMAAAAFAAEAAAANAAQAAAAIAAAAAAAFAAMAAAABAAAAAAAEAAMAAAABAAAAAAADAAMAAAABAAAAAAADAAIAAAAHAAEAAAAEAAIAAAAHAAEAAAAFAAIAAAAHAAEAAAAGAAMAAAAHAAEAAAARAAMAAAAHAAEAAAAQAAMAAAAHAAEAAAAPAAMAAAAHAAEAAAAOAAMAAAAHAAEAAAAIAAEAAAABAAEAAAAGAAAAAAACAAEAAAAFAAAAAAABAAEAAAAHAAAAAAADAAEAAAAKAAQAAAADAAEAAAAJAAQAAAABAAEAAAAAAAQAAAAHAAEAAAA=")
 tile_set = SubResource("TileSet_dw26h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=294769043]
-position = Vector2(1066.5236, 4.172222)
+position = Vector2(1073.5236, 263.17224)
 scale = Vector2(0.5283953, 0.52839535)
 texture = ExtResource("3_dw26h")
 
@@ -87,25 +86,17 @@ scale = Vector2(1.8540561, -23.094566)
 sceneName = "Level2"
 
 [node name="LoseArea" parent="." unique_id=2123362957 instance=ExtResource("4_lrl65")]
-position = Vector2(3.9999995, 290)
+position = Vector2(11, 549)
 scale = Vector2(9.822315, 3.0296237)
 sceneName = "Level1"
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1890448408]
-position = Vector2(820, -205)
+position = Vector2(829, 53)
 script = ExtResource("5_lrl65")
 obstacle = ExtResource("6_76388")
 
-[node name="Boundary" type="StaticBody2D" parent="." unique_id=1011196716]
-position = Vector2(-69, 632)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=760403197]
-position = Vector2(632.75, -875)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_svatc")
-
 [node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=947462456]
-position = Vector2(-34.5, 316)
+position = Vector2(-27.5, 575)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=2037754489]
 position = Vector2(-18.5, -283)
