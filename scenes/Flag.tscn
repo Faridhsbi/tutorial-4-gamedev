@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bexb5fx7a8fwo"]
+
+[node name="Flag" type="AnimationTree" unique_id=1949325705]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=85713379]

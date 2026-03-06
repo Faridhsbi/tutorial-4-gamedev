@@ -1,10 +1,112 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqmk0vpvnyxr"]
+[gd_scene format=4 uid="uid://yqmk0vpvnyxr"]
 
 [ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://nr83ld3vcyy0" path="res://assets/kenney_platformerpack/PNG/Backgrounds/colored_land.png" id="1_svatc"]
+[ext_resource type="Texture2D" uid="uid://76hi8rt1miuo" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_grass.png" id="2_bwv4p"]
+[ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="3_dw26h"]
+[ext_resource type="PackedScene" uid="uid://brd8yotywcgbb" path="res://scenes/Area2d.tscn" id="4_lrl65"]
+[ext_resource type="Script" uid="uid://bqx31g7a4iqvw" path="res://scenes/Spawner.gd" id="5_lrl65"]
+[ext_resource type="PackedScene" uid="uid://b118pvmscylk6" path="res://scenes/FallingFish.tscn" id="6_76388"]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odhdn"]
+texture = ExtResource("2_bwv4p")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -35.138405, 38.066605)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 36.11447, 40.994812, -64, 64)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -6.8324738, 23.425598, -64, -17.569199)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -18.545265, -64, 64)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 7.8085327, -64, 9.760666)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 7.8085327, -64, 9.760666)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 7.8085327, -64, 9.760666)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -35.138405, 38.066605)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, 64, -64, 64)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, 64, 64, 64)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
-[node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(445, 209)
+[sub_resource type="TileSet" id="TileSet_dw26h"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 3
+sources/0 = SubResource("TileSetAtlasSource_odhdn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svatc"]
+size = Vector2(89, 1154.5)
+
+[node name="Level1" type="Node2D" unique_id=1631608712]
+position = Vector2(17, 198)
+
+[node name="ColoredLand" type="Sprite2D" parent="." unique_id=2101660135]
+modulate = Color(0.8151441, 0.8151441, 0.8151441, 1)
+position = Vector2(512.00006, -48.999985)
+scale = Vector2(1.5185547, 1.5185547)
+texture = ExtResource("1_svatc")
+
+[node name="Player" parent="." unique_id=96839003 instance=ExtResource("1")]
+position = Vector2(26, 160)
 collision_layer = 3
 collision_mask = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=989327892]
+position = Vector2(-10, -59)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAACAAIAAAAFAAEAAAABAAMAAAAFAAEAAAACAAMAAAAIAAAAAAABAAQAAAAIAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAFAAQAAAABAAAAAAAHAAQAAAAEAAAAAAAGAAQAAAABAAAAAAAOAAQAAAABAAAAAAAQAAQAAAABAAAAAAARAAQAAAABAAAAAAAPAAQAAAABAAAAAAAMAAQAAAAFAAAAAAANAAMAAAAFAAEAAAANAAQAAAAIAAAAAAAFAAMAAAABAAAAAAAEAAMAAAABAAAAAAADAAMAAAABAAAAAAADAAIAAAAHAAEAAAAEAAIAAAAHAAEAAAAFAAIAAAAHAAEAAAAGAAMAAAAHAAEAAAARAAMAAAAHAAEAAAAQAAMAAAAHAAEAAAAPAAMAAAAHAAEAAAAOAAMAAAAHAAEAAAAIAAEAAAABAAEAAAAGAAAAAAACAAEAAAAFAAAAAAABAAEAAAAHAAAAAAADAAEAAAAKAAQAAAADAAEAAAAJAAQAAAABAAEAAAAAAAQAAAAHAAEAAAA=")
+tile_set = SubResource("TileSet_dw26h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=294769043]
+position = Vector2(1066.5236, 4.172222)
+scale = Vector2(0.5283953, 0.52839535)
+texture = ExtResource("3_dw26h")
+
+[node name="WinScreen" parent="Sprite2D" unique_id=785879716 instance=ExtResource("4_lrl65")]
+position = Vector2(-102.039986, 2.6852417)
+scale = Vector2(1.8540561, -23.094566)
+sceneName = "Level2"
+
+[node name="LoseArea" parent="." unique_id=2123362957 instance=ExtResource("4_lrl65")]
+position = Vector2(3.9999995, 290)
+scale = Vector2(9.822315, 3.0296237)
+sceneName = "Level1"
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1890448408]
+position = Vector2(820, -205)
+script = ExtResource("5_lrl65")
+obstacle = ExtResource("6_76388")
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=1011196716]
+position = Vector2(-69, 632)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=760403197]
+position = Vector2(632.75, -875)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_svatc")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=947462456]
+position = Vector2(-34.5, 316)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=2037754489]
+position = Vector2(-18.5, -283)
+shape = SubResource("RectangleShape2D_svatc")
