@@ -16,5 +16,5 @@ func spawn():
 
 func repeat():
 	spawn()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	repeat()

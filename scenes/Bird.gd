@@ -18,7 +18,14 @@ func _on_body_entered(body):
 		return
 
 	if body.name == "Player":
-		get_tree().reload_current_scene()
+		Global.lives -= 1
+		
+		if Global.lives <= 0:
+			TransitionScreen.change_scene("res://scenes/Game Over.tscn")
+		else:
+			get_tree().call_deferred("reload_current_scene")
+			
+		call_deferred("queue_free")
 	else:
 		is_dead = true
 		

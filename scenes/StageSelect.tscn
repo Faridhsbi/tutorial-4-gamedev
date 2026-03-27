@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://7qn8xcll1rxf"]
+
+[ext_resource type="Texture2D" uid="uid://bj2aew56l2i28" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Pink/alienPink_front.png" id="1_eeirb"]
+[ext_resource type="FontFile" uid="uid://dloj5b8t0lqpt" path="res://assets/CC Wild Words Roman.ttf" id="1_w5612"]
+[ext_resource type="Script" uid="uid://bxmnsbbk2e44x" path="res://scenes/link_button.gd" id="2_k456m"]
+
+[node name="StageSelect" type="MarginContainer" unique_id=916487479]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=99736540]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=353736149]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer" unique_id=1775226982]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("1_eeirb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=611596347]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=136379593]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9529412, 0.6862745, 0.77254903, 1)
+theme_override_fonts/font = ExtResource("1_w5612")
+theme_override_font_sizes/font_size = 37
+text = "Select Level"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1079596486]
+layout_mode = 2
+
+[node name="LinkButton" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2089500225]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_w5612")
+theme_override_font_sizes/font_size = 37
+text = "Level 1"
+script = ExtResource("2_k456m")
+scene_to_load = "Level1"
+
+[node name="LinkButton2" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1691880540]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_w5612")
+theme_override_font_sizes/font_size = 37
+text = "Level 2"
+script = ExtResource("2_k456m")
+scene_to_load = "Level2"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1294990729]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton" method="_on_New_Game_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton2" to="HBoxContainer/VBoxContainer/VBoxContainer/LinkButton2" method="_on_New_Game_pressed"]

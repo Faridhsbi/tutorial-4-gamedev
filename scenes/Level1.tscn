@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://brd8yotywcgbb" path="res://scenes/Area2d.tscn" id="4_lrl65"]
 [ext_resource type="Script" uid="uid://bqx31g7a4iqvw" path="res://scenes/Spawner.gd" id="5_lrl65"]
 [ext_resource type="PackedScene" uid="uid://b118pvmscylk6" path="res://scenes/FallingFish.tscn" id="6_76388"]
+[ext_resource type="PackedScene" uid="uid://b2exhha535rxo" path="res://scenes/Life Counter.tscn" id="8_ecr63"]
+[ext_resource type="PackedScene" uid="uid://cxdgjs2pynnmh" path="res://scenes/PauseMenu.tscn" id="9_n34uq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odhdn"]
 texture = ExtResource("2_bwv4p")
@@ -84,6 +86,7 @@ texture = ExtResource("3_dw26h")
 position = Vector2(-102.039986, 2.6852417)
 scale = Vector2(1.8540561, -23.094566)
 sceneName = "Level2"
+is_win_area = true
 
 [node name="LoseArea" parent="." unique_id=2123362957 instance=ExtResource("4_lrl65")]
 position = Vector2(11, 549)
@@ -101,3 +104,10 @@ position = Vector2(-27.5, 575)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=2037754489]
 position = Vector2(-18.5, -283)
 shape = SubResource("RectangleShape2D_svatc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=417499298]
+
+[node name="LifeCounter" parent="CanvasLayer" unique_id=914059582 instance=ExtResource("8_ecr63")]
+
+[node name="PauseMenu" parent="." unique_id=1468922263 instance=ExtResource("9_n34uq")]
+visible = false

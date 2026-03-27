@@ -1,3 +1,32 @@
+# Tutorial 6 - Menu and In-Game GUI
+####  Nama: Muhammad Farid Hasabi
+#### NPM : 2306152512
+
+## Implementasi UI (Tutorial 6 & Latihan Mandiri)
+Sistem antarmuka pengguna telah diintegrasikan untuk memberikan pengalaman bermain yang utuh (*game loop*):
+* **Main Menu:** Dilengkapi dengan judul dan sistem navigasi menu.
+* **Stage Select:** Layar transisi dinamis yang memanfaatkan susunan `VBoxContainer` dan `HBoxContainer` agar pemain dapat melompat langsung ke Level 1 atau Level 2.
+* **Global Life Counter:** Indikator sisa nyawa player yang persisten selama *gameplay*, ditampilkan menggunakan `CanvasLayer` agar terpisah dari kamera karakter utama.
+* **Game Over & Win Screen:** Layar akhir permainan yang interaktif. Jika nyawa pemain menyentuh angka `<= 0`, layar Game Over akan muncul. Jika pemain mencapai win area/objective, maka layar Win Screen akan muncul dan menampilkan kalkulasi sisa nyawa saat itu.
+
+## Fitur Tambahan
+Selain fitur wajib diatas, saya juga menambahkan fitur-fitur lainnya, antara lain:
+
+###  Arsitektur Singleton (Autoload)
+* **Global State (`Global.gd`):** Menggunakan sistem *Globals/Autoload* untuk menyimpan variabel `lives = 3`. Terdapat logika *auto-reset* yang akan mengembalikan nyawa menjadi penuh setiap kali pemain menekan tombol *New Game*, menekan tombol kembali ke *Main Menu*, atau ketika berhasil memenangkan suatu level.
+* **Scene Transition Manager (`TransitionScreen.tscn`):** Alih-alih memindahkan *scene* secara kasar (*hard cut*), perpindahan level ditangani oleh sebuah Autoload berLayer 10 yang berisi `ColorRect` dan `AnimationPlayer`. Menggunakan kombinasi *method* `await`, sistem menyajikan transisi layar *Fade to Black* dan *Fade to Normal* yang mulus antar level.
+
+### Dynamic Pause Menu
+* Mengimplementasikan menu Pause berbasis `ui_cancel` (ESC).
+* **Pause State Mastery:** *Node* menu Pause diatur Process Mode-nya menjadi `Always`, sementara sistem *gameplay* dibekukan menggunakan `get_tree().paused = true`. 
+* **Perbaikan Timer:** Menangani *bug* klasik di mana *spawner* rintangan terus menumpuk objek saat game di-pause dengan cara menerapkan parameter `false` pada `get_tree().create_timer(time, process_always)` dan mengatur mode Process pada node Timer menjadi `Pausable` / `Inherit`.
+
+## Referensi Tambahan
+* [Godot Docs: Singletons (Autoload)](https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html)
+* [Godot Docs: Pausing games](https://docs.godotengine.org/en/stable/tutorials/scripting/pausing_games.html)
+* [Godot Docs: Method call_deferred()](https://docs.godotengine.org/en/stable/classes/class_object.html#class-object-method-call-deferred)
+
+---
 # Tutorial 4 - Basic 2D Level Design
 ####  Nama: Muhammad Farid Hasabi
 #### NPM : 2306152512

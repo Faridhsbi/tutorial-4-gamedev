@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bnqsrh78hf7s2"]
+
+[ext_resource type="FontFile" uid="uid://ipdakf62gd5y" path="res://assets/CC Wild Words Bold Italic.ttf" id="1_vlb8f"]
+[ext_resource type="FontFile" uid="uid://dloj5b8t0lqpt" path="res://assets/CC Wild Words Roman.ttf" id="2_8vl1a"]
+[ext_resource type="Script" uid="uid://bxmnsbbk2e44x" path="res://scenes/link_button.gd" id="3_lj1s0"]
+
+[node name="GameOver" type="ColorRect" unique_id=1938323349]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5224432, 1.2634322e-06, 3.3691526e-07, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1938947215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.0
+offset_top = -58.0
+offset_right = 397.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1594689014]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vlb8f")
+theme_override_font_sizes/font_size = 95
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1896165890]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LinkButton" type="LinkButton" parent="VBoxContainer/VBoxContainer" unique_id=1117490716]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8vl1a")
+theme_override_font_sizes/font_size = 29
+text = "Back To Main Menu"
+script = ExtResource("3_lj1s0")
+scene_to_load = "MainMenu"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/LinkButton" to="VBoxContainer/VBoxContainer/LinkButton" method="_on_New_Game_pressed"]

@@ -1,10 +1,18 @@
 extends RigidBody2D
 
-@export var scene_name: String = "LoseScreen"
+@export var scene_name: String = "Game Over"
 
 func _on_FallArea_body_entered(body):
 	if body.name == "Player":
-		var scene_path: String = "res://scenes/%s.tscn" % scene_name
-		get_tree().change_scene_to_file(scene_path)
+		Global.lives -= 1
+		
+		if Global.lives <= 0:
+			var scene_path: String = "res://scenes/%s.tscn" % scene_name
+			get_tree().call_deferred("change_scene_to_file", scene_path)
+		else:
+			get_tree().call_deferred("reload_current_scene")
+			
+		call_deferred("queue_free")
+		
 	else:
-		queue_free()
+		call_deferred("queue_free")

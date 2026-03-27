@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://datp865tmg0pf" path="res://scenes/Bomb.tscn" id="25_hx5ho"]
 [ext_resource type="Script" uid="uid://bcullbigaldu1" path="res://scenes/BirdSpawner.gd" id="26_8e46r"]
 [ext_resource type="PackedScene" uid="uid://dqnwoiovxtuyc" path="res://scenes/Bird.tscn" id="26_lgxow"]
+[ext_resource type="PackedScene" uid="uid://cxdgjs2pynnmh" path="res://scenes/PauseMenu.tscn" id="28_8e46r"]
+[ext_resource type="PackedScene" uid="uid://b2exhha535rxo" path="res://scenes/Life Counter.tscn" id="29_v603j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wd6ad"]
 texture = ExtResource("2_xpq2v")
@@ -283,6 +285,7 @@ position = Vector2(-10.5, 97)
 shape = SubResource("RectangleShape2D_h35wg")
 
 [node name="BombSpawner" type="Marker2D" parent="." unique_id=300186143]
+process_mode = 1
 position = Vector2(673, -168)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("24_hx5ho")
@@ -411,6 +414,13 @@ texture = ExtResource("5_epefj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Snow6" unique_id=533844489]
 position = Vector2(359.24994, 500.99997)
 shape = SubResource("RectangleShape2D_24quv")
+
+[node name="PauseMenu" parent="." unique_id=1468922263 instance=ExtResource("28_8e46r")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1746872111]
+
+[node name="LifeCounter" parent="CanvasLayer" unique_id=914059582 instance=ExtResource("29_v603j")]
 
 [connection signal="timeout" from="BombSpawner/Timer" to="BombSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="BirdSpawner/Timer" to="BirdSpawner" method="_on_timer_timeout"]
