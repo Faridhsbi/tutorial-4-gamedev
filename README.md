@@ -1,3 +1,26 @@
+# Tutorial 8 - Polishing and Game Balancing
+#### Nama: Muhammad Farid Hasabi
+#### NPM: 2306152512
+
+## Penjelasan Proses Pengerjaan
+Pada tutorial ini, saya melakukan proses *Game Polishing* dan *Game Balancing* untuk meningkatkan *Game Feel*. Berikut adalah langkah-langkah implementasi yang saya lakukan:
+
+1. **Memperbarui Movement System:** Saya mengubah tipe data `speed` pada `Player.gd` dari `int` menjadi `float`, serta menambahkan variabel `ACCELERATION` dan `DECELERATION`. Saya menggunakan fungsi interpolasi `lerp()` pada `get_input()` untuk transisi pergerakan yang lebih mulus sehingga kecepatan (*velocity*) naik dan turun secara perlahan.
+2. **Menambahkan Partikel Lari:** Saya menggunakan node `GPUParticles2D` pada *scene* pemain. Saya mengkonfigurasi `ParticleProcessMaterial` (mengatur Gravity Y ke -100, Spread ke 180, Emission Shape menjadi Box, dll) menggunakan tekstur partikel dari Kenney Assets. Partikel ini diatur agar hanya muncul (*emitting = true*) ketika kecepatan karakter menyentuh nilai maksimal dan karakter sedang berada di lantai.
+3. **Balancing Spawn Rate:** Saya melakukan *Game Balancing* dengan menurunkan tingkat agresivitas rintangan pada `Spawner.gd`. Tingkat kesulitan diubah agar pemain bisa merasakan *Flow* (keseimbangan antara tantangan dan kemampuan pemain).
+
+## Latihan Mandiri: Polishing
+Menurut saya, *updated movement system* menggunakan fungsi `lerp()` beserta penambahan partikel lari (`GPUParticles2D`) sangat meningkatkan kualitas game atau *Game Feel*. Pergerakan pemain menjadi lebih halus, mulus, dan realistis karena ada efek kelembaman (*acceleration* dan *deceleration*), dibandingkan dengan pergerakan konstan sebelumnya yang terasa kaku. Partikel debu atau *trail* yang muncul juga memberikan isyarat visual (*visual feedback*) yang jelas bagi pemain saat karakter berlari dengan kecepatan penuh, membuat permainan terasa jauh lebih reaktif dan *juicy*.
+
+## Latihan Mandiri: Game Balancing
+Pada tahap *game balancing*, nilai **Spawn Rate** dari `Enemy Spawner` (*Timer*) yang sebelumnya `0.5` detik membuat game menjadi sangat sulit atau hampir mustahil untuk diselesaikan (*Unbalanced/Rage-inducing*). Setelah bereksperimen, saya mengubah nilai *spawn rate* menjadi `3.0` detik. Nilai `3.0` detik ini memberikan pemain cukup jeda waktu untuk menghindari rintangan, mengatur *timing* pergerakan menuju akhir level tanpa kehilangan tingkat tantangan, sehingga pemain dapat bermain dengan nyaman di dalam batas *Flow*.
+
+## Referensi Tambahan
+* [Godot Docs: Interpolation (lerp)](https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html)
+* [Godot Docs: GPUParticles2D](https://docs.godotengine.org/en/stable/classes/class_gpuparticles2d.html)
+
+---
+
 # Tutorial 6 - Menu and In-Game GUI
 ####  Nama: Muhammad Farid Hasabi
 #### NPM : 2306152512
